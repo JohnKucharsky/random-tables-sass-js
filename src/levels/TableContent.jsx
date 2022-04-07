@@ -1,40 +1,10 @@
-import React, { useEffect, useState } from "react";
-
-const TableContent = ({ item }) => {
-  const [arr, setArr] = useState([]);
-  const [sw, setSw] = useState(false);
-  const [swNum, setSwNum] = useState(false);
-  let sorted = [];
-  item.data.map((element, index) => sorted.push({ ...element, index }));
-
-  const handleSortIndex = () => {
-    if (!sw) {
-      sorted.sort((a, b) => b.index - a.index);
-      setArr(sorted);
-      setSw(true);
-    } else {
-      console.log("first");
-      sorted.sort((a, b) => a.index - b.index);
-      setSw(false);
-      setArr(sorted);
-    }
-  };
-  const handleSortNumber = () => {
-    if (!swNum) {
-      sorted.sort((a, b) => b.number - a.number);
-      setArr(sorted);
-      setSwNum(true);
-    } else {
-      console.log("first");
-      sorted.sort((a, b) => a.number - b.number);
-      setSwNum(false);
-      setArr(sorted);
-    }
-  };
-  useEffect(() => {
-    setArr(sorted);
-  }, []);
-
+const TableContent = ({
+  arr,
+  sw,
+  swNum,
+  handleSortIndex,
+  handleSortNumber,
+}) => {
   return (
     <table>
       <tbody>

@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { useState } from "react";
+import { useState } from "react";
 import TableContent from "./TableContent";
 
 const Table = ({ item }) => {
@@ -8,8 +8,35 @@ const Table = ({ item }) => {
   let dateStart = new Date(item.dateStart);
   let dEnd = moment(dateEnd).format("DD.MM.YYYY");
   let dStart = moment(dateStart).format("DD.MM.YYYY");
-
+  const [arr, setArr] = useState([]);
+  const [sw, setSw] = useState(true);
+  const [swNum, setSwNum] = useState(false);
+  let sorted = [];
+  item.data.map((element, index) => sorted.push({ ...element, index }));
+  const handleSortIndex = () => {
+    if (!sw) {
+      sorted.sort((a, b) => b.index - a.index);
+      setArr(sorted);
+      setSw(true);
+    } else {
+      sorted.sort((a, b) => a.index - b.index);
+      setSw(false);
+      setArr(sorted);
+    }
+  };
+  const handleSortNumber = () => {
+    if (!swNum) {
+      sorted.sort((a, b) => b.number - a.number);
+      setArr(sorted);
+      setSwNum(true);
+    } else {
+      sorted.sort((a, b) => a.number - b.number);
+      setSwNum(false);
+      setArr(sorted);
+    }
+  };
   const toggleTable = (d) => {
+    handleSortIndex();
     if (item.title === d) {
       if (show.show === true) {
         return setShow({ show: false, title: item.title });
@@ -29,7 +56,15 @@ const Table = ({ item }) => {
           {dStart} - {dEnd}
         </p>
       </div>
-      {show.show && item.title === show.title && <TableContent item={item} />}
+      {show.show && item.title === show.title && (
+        <TableContent
+          arr={arr}
+          sw={sw}
+          swNum={swNum}
+          handleSortIndex={handleSortIndex}
+          handleSortNumber={handleSortNumber}
+        />
+      )}
     </div>
   );
 };
