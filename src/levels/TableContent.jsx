@@ -28,7 +28,7 @@ const TableContent = ({
           </th>
         </tr>
         {arr.map((i) => (
-          <tr key={i.title}>
+          <tr className="tr-bottom" key={i.title}>
             <td>{i.index + 1}</td>
             <td>{i.title}</td>
             <td className="center-number">{i.number}</td>
