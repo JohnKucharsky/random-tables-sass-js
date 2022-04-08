@@ -27,6 +27,13 @@ function App() {
 
   let newData = randomData();
 
+  // array for options
+  const list = [];
+  newData.forEach((i) =>
+    i.items.forEach((t) => t.items.forEach(({ title }) => list.push(title)))
+  );
+  // end array for options
+
   return (
     <div className="app">
       <div className="app__search">
@@ -50,12 +57,11 @@ function App() {
           </span>
           {optionOpen && (
             <select name="" id="">
-              <option value="" defaultValue="none"></option>
-              <option value="">что Ты ищешь?</option>
-              <option value="">люди в постоянном поиске</option>
-              <option value="">забывают о главном</option>
-              <option value="">когда ты последний раз</option>
-              <option value="">был на море?</option>
+              {list.map((i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
             </select>
           )}
         </div>
