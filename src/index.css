@@ -4,49 +4,10 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
-
-.flex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-left: 1rem;
-  border-left: 2px solid #999999;
-  padding: 1.2rem;
-}
-.item {
-  border: 1px solid #2e465c;
-  border-radius: 1.5px;
-  min-width: 300px;
-  background: #f1f9ff;
-}
-.table-header {
-  cursor: pointer;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-th {
-  border-style: solid;
-  border-color: #2e465c;
-  border-width: 1px 0;
-}
-
 table {
   border-collapse: collapse;
   width: 100%;
   margin: 0;
-  /* border: 1px solid black; */
-}
-table > tbody > tr > td:first-child {
-  text-align: center;
-  width: 2rem;
-  border-right: 1px solid #9cd0ff;
-}
-.point {
-  cursor: pointer;
 }
 button {
   cursor: pointer;
@@ -54,59 +15,14 @@ button {
   color: #ffffff;
   background-color: #2e465c;
   border: 1px solid #2e465c;
-  padding: 0.6rem 0.9rem;
+  padding: 0.6rem 0;
+  width: 70px;
   transition: all 0.3s linear;
 }
 button:hover {
   background-color: #365775;
 }
-.lev2-cont {
-  padding: 1rem;
-  margin-left: 2rem;
-}
-.lev1-cont {
-  padding: 1rem;
-}
 
-.line {
-  border-left: 2px solid #999999;
-  height: 2rem;
-  margin-left: 1rem;
-  position: absolute;
-}
-.line-hor {
-  border-bottom: 2px solid #999999;
-  width: 2rem;
-  margin-left: 1rem;
-  padding-bottom: 2rem;
-  position: absolute;
-}
-.search {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  display: flex;
-  gap: 0.5rem;
-}
-.close,
-.look {
-  display: grid;
-  cursor: pointer;
-  place-content: center;
-  width: 36px;
-  height: 36px;
-  background: #c4c4c4;
-
-  border-radius: 50%;
-}
-.inp,
-.option {
-  background: #c4c4c4;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-}
 select {
   margin: 0.5rem 1rem 0.5rem 0;
   border-radius: 50px;
@@ -123,34 +39,9 @@ input {
   width: 110px;
   outline: none;
 }
-.span-th {
-  font-size: 12px;
-}
-table > tbody > tr > th {
-  font-size: 12px;
+th {
+  border-style: solid;
+  border-color: #2e465c;
+  border-width: 1px 0;
   font-weight: 400;
-}
-.table-title {
-  font-size: 18px;
-  line-height: 0.8rem;
-  color: #2e465c;
-  font-weight: 600;
-}
-.table-subtitle {
-  font-size: 14px;
-  line-height: 0.4rem;
-}
-.table-date {
-  color: #2e465c;
-  font-weight: 500;
-}
-.center-number {
-  text-align: center;
-  border-left: 1px solid #9cd0ff;
-}
-.th {
-  border-left: 1px solid #2e465c;
-}
-.tr-bottom {
-  border-top: 1px solid #9cd0ff;
 }

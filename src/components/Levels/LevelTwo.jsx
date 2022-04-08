@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Table from "./Table";
+import Table from "./../Table/Table";
 
 const LevelTwo = ({ lev2 }) => {
   const [show, setShow] = useState({});
-  const toggleCity = (d) => {
+
+  // toggle
+  const toggle = (d) => {
     if (lev2.title === d) {
       if (show.show === true) {
         return setShow({ show: false, title: lev2.title });
@@ -13,10 +15,10 @@ const LevelTwo = ({ lev2 }) => {
   };
 
   return (
-    <div className="lev2-cont">
-      <button onClick={() => toggleCity(lev2.title)}>{lev2.title}</button>
+    <div className="lev2">
+      <button onClick={() => toggle(lev2.title)}>{lev2.title}</button>
       {show.show && show.title === lev2.title && (
-        <div className="flex">
+        <div className="lev2__container">
           {lev2.items.map((item) => (
             <Table key={item.title} item={item} />
           ))}

@@ -1,10 +1,13 @@
-import LevelOne from "./levels/LevelOne";
 import { useState } from "react";
+import randomData from "./api";
+import LevelOne from "./components/Levels/LevelOne";
+import "./app.scss";
 
 function App() {
   const [inputOpen, setInputOpen] = useState(false);
   const [optionOpen, setOptionOpen] = useState(false);
 
+  // input ui
   const handleShowInput = () => {
     if (optionOpen) {
       setOptionOpen(false);
@@ -20,45 +23,18 @@ function App() {
       setOptionOpen(!optionOpen);
     }
   };
-  function randomData() {
-    function t(t, e) {
-      return t > e || t < 0 ? 0 : Math.floor(Math.random() * (e - t + 1) + t);
-    }
-    function e() {
-      return Math.random().toString(36).slice(-5);
-    }
-    const n = [];
-    for (let o = 0; o < t(1, 10); o++) {
-      const o = [];
-      for (let n = 0; n < t(1, 10); n++) {
-        const n = [];
-        for (let o = 0; o < t(1, 10); o++) {
-          const o = [];
-          for (let n = 0; n < t(5, 15); n++)
-            o.push({ title: e(), number: t(1, 1e7) });
-          n.push({
-            title: e(),
-            subTitle: e(),
-            dateStart: Date.now(),
-            dateEnd: Date.now() + 6e5,
-            data: o,
-          });
-        }
+  // end input ui
 
-        o.push({ title: e(), items: n });
-      }
-      n.push({ title: e(), items: o });
-    }
-
-    return n;
-  }
   let newData = randomData();
 
   return (
-    <div>
-      <div className="search">
-        <div className="option">
-          <span onClick={() => handleShowOption()} className="close">
+    <div className="app">
+      <div className="app__search">
+        <div className="app__search-option">
+          <span
+            onClick={() => handleShowOption()}
+            className="app__search-close"
+          >
             <svg
               width="14"
               height="14"
@@ -83,9 +59,9 @@ function App() {
             </select>
           )}
         </div>
-        <div className="inp">
+        <div className="app__search-input">
           {inputOpen && <input type="text" placeholder="не работает" />}
-          <span onClick={() => handleShowInput()} className="look">
+          <span onClick={() => handleShowInput()} className="app__search-look">
             <svg
               width="18"
               height="18"
